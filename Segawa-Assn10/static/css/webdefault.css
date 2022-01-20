@@ -1,0 +1,251 @@
+/*Name: Dustin Segawa*/
+/*Assignment: CS336 Assignment #10*/
+/*Created: 8/18/2020*/
+/*Description: CSS Page for Conference Website*/
+
+/*@charset "UTF-8";*/
+/* CSS Document */
+
+/*Variables*/
+:root {
+    --width-page-min: 360px;
+    --width-page-max: 1280px;
+}
+
+/*borders*/
+.border1 {
+    flex: 1;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+.pad {padding: 5px;}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/*text*/
+.bold {font-weight: bold;}
+.text_title {
+    font-size: calc(18pt + (32 - 18) * ((100vw - 360px) / (1280 - 360)));
+    padding: 5px;
+}
+.text_heading {
+    font-size: calc(14pt + (24 - 14) * ((100vw - 360px) / (1280 - 360)));
+    padding: 5px;
+}
+.text_block {
+    font-size: calc(10pt + (18 - 10) * ((100vw - 360px) / (1280 - 360)));
+    padding: 5px;
+}
+address {
+    min-width: var(--width-page-min);
+    padding-left: 10px;
+}
+blockquote {min-width: calc(var(--width-page-min) - 60px);}
+
+/*table*/
+th {text-align: left;}  /*left aligns the head*/
+
+/*flex containers for propagating*/
+.flex_col_page {    /*flex for page container*/
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: var(--width-page-min);
+    max-width: var(--width-page-max);
+    margin: auto;
+    border: 1px dotted black;
+}
+.flex_column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: auto;
+    /*border: 1px dashed red;*/
+}
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    /*border: 1px dashed red;*/
+}
+.flex_row_nw {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: nowrap;
+    /*border: 1px dashed red;*/
+}
+.flex1 {
+    display: flex;
+    flex: 1;
+    /*border: 1px dashed blue;*/
+}
+.flex2 {
+    display: flex;
+    flex: 2;
+    /*border: 1px dashed blue;*/
+}
+.flex_containerQ {
+    display: flex;
+    flex: .25;
+    /*border: 1px dashed blue;*/
+}
+.min225 {min-width: var(--width-page-min);}
+
+/*image CSS*/
+.img_homepage {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.img75 {
+    width: 75%;
+    border-radius: 20px;
+}
+.img100 {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*popup error CSS*/
+.errorMsg {
+    align-items: center;
+    text-align: center;
+    background: url("../images/garfield_no.jpg") no-repeat 50% 0%;
+    background-color: black;
+    background-size: 500px 400px;
+    opacity: 80%;
+}
+.errorMsg h1, .errorMsg h2, .errorMsg h3 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+/*Registration form CSS*/
+.registration_form {
+    width: auto;            /*fill container width which is the page*/
+    min-width: 400px;       /*min width for mobile*/
+    max-width: 1092px;      /*max width for desktop*/
+    margin: auto;           /*center form*/
+}
+.registration_form legend {
+    text-align: center;
+    font-weight: bold;
+}
+.registration_form fieldset {
+    margin-bottom: 5px;     /*spaces fieldset groups*/
+    border: 1pt dotted black;
+}
+.registration_form fieldset:hover {
+    background-color: cyan;
+    border: 1pt solid blue;
+}
+.registration_form input, .registration_form select, .registration_form label {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*Flexbox settings for all labels*/
+.label_title {
+    flex: 1;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.label_radio {
+    flex: 1;
+    white-space: nowrap;
+}
+
+/*Flexbox for name*/
+.form_flex_name {               /*reactive container for name info*/
+    display: flex;
+    flex-direction: column;     /*display in columns unless wide screen*/
+}
+.field_title {
+    display: flex;
+    flex-direction: row;
+    min-width: 90px;        /*control min/max*/
+    max-width: 120px;
+}
+.field_name {
+    display: flex;
+    flex-direction: column;     /*display in columns unless wide screen*/
+}
+@media only screen and (min-width: 600px) { /*media query for wider screen*/
+    .form_flex_name {                       /*change flex container to row format*/
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .field_name {                           /*change field into row format*/
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+}
+
+/*Flexbox settings for input groups*/
+.field_city, .field_state, .field_zip, .field_phone, .field_email, .field_company,
+.field_website, .field_position {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+/*Flexbox settings for input/select fields*/
+#fname, #lname, #city, #stateList, #zip/*, #fname_bill, #lname_bill*/ {
+    flex: 2;    /*larger flex for more input room*/
+}
+#telephone, #email, #company_name, #company_pos, #company_web {
+    flex: 1;
+}
+
+.form_column_flex {         /*flex column for wider screen*/
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+@media only screen and (min-width: 600px) {
+    .form_column_flex {
+        flex: 2;            /*double size to push radio buttons*/
+    }
+}
+
+.submit_button {text-align: center; /*centers button*/}
+
+/*Added background images to input boxes*/
+input:required {
+    background: url("../images/icons8-box-important-40.png") no-repeat 100% 50%;
+    background-color: lightyellow;
+    background-size: 12pt;
+}
+input:required:valid {
+    background: url("../images/icons8-checked-40.png") no-repeat 100% 50%;
+    background-color: white;
+    background-size: 12pt;
+}
+select:required {
+    background: url("../images/icons8-box-important-40.png") no-repeat 85% 50%;
+    background-color: lightyellow;
+    background-size: 12pt;
+}
+select:required:valid {
+    background: url("../images/icons8-checked-40.png") no-repeat 85% 50%;
+    background-color: white;
+    background-size: 12pt;
+}
+
+#chart {height: 440px;}

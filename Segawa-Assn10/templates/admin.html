@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block keywords %}admin{% endblock %}
+{% block description %}admin options{% endblock %}
+{% block title %}Administration Page{% endblock %}
+
+{% block main %}
+        <div class="flex_column">
+            <div class="flex_column center">
+                <div class="bold text_title">Administration</div>
+                <div class="text_heading">{{ welcome }}</div>
+            </div><br>
+            <div class="flex_column text_block">
+                <div class="flex_row"><a href="lists">Lists of Registrants</a></div>
+                <div class="flex_row"><a href="nametags8">Nametags - 8 per page</a></div>
+                <div class="flex_row"><a href="nametags10">Nametags - 10 per page</a></div>
+                <div class="flex_row"><a href="logout">Logout</a></div>
+            </div>
+        </div>
+{% endblock %}

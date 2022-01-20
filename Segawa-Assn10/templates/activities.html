@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block keywords %}activities, fun{% endblock %}
+{% block description %}activities page for the site{% endblock %}
+{% block title %}Local Activities{% endblock %}
+
+{% block main %}
+        <div class="flex_column">
+            <div class="flex1 center">
+                <div class="text_title bold">Local activities</div>
+            </div><br><br>
+            <div class="flex1 center">
+                <div>
+                    <video width=100% controls>
+                        <source src="/static/videos/topgolf.mp4">
+                        <source src="/static/videos/topgolf.ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class=flex1 center">
+                <dl>
+                    <dt><div class="text_heading bold">Topgolf</div></dt>
+                    <dd class="text_block">
+                        Topgolf is a global sports entertainment company headquartered in Dallas, Texas.
+                        The facility primarily offers a game that can be played by anyone regardless of
+                        their golfing ability. Players hit micro-chipped golf balls similar to a driving
+                        range, however they aim for targets and score points based on the game type selected.
+                        Servers offer a full selection of food and drinks while playing in climate controlled
+                        bays. The facility also offers a full sports lounge, apparel store, and virtual game
+                        simulators to enhance your experience.<br><br>
+                    </dd>
+                    <dt><div class="text_heading bold">Winery Tours</div></dt>
+                    <dd class="text_block">
+                        More than 13 wineries in Leesburg and dozens more in the vicinity. Several
+                        transportation companies offer wine tours, ranging from commercial passenger vans
+                        to limousines to suit your needs.<br><br>
+                    </dd>
+                    <dt><div class="text_heading bold">Historic Downtown Leesburg</div></dt>
+                    <dd class="text_block">
+                        Known for being one of the best preserved and most picturesque downtowns in Virginia,
+                        Downtown Leesburg is your everyday destination:  historic sites and museums, vibrant
+                        culinary scene, large selection of breweries, award-winning wineries, boutiques,
+                        antiques and range of startup to enterprise size companies.<br><br>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+{% endblock %}

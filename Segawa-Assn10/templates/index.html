@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block keywords %}index, homepage{% endblock %}
+{% block description %}index for the site{% endblock %}
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+    <div class="flex_row">
+            <div class="flex1">
+                <img class="img_homepage" src="/static/images/communication-tower.jpg" alt="Radio Tower">
+            </div>
+            <div class="flex2">
+                <div class="flex_column">
+                    <div class="flex1 center">
+                        <div class="text_title bold">RF Communications Training Conference</div>
+                    </div>
+                    <div class="flex1 center">
+                        <div class="text_heading bold">November 2, 2020<br>
+                            The National Conference Center<br>
+                            18980 Upper Belmont Place<br>
+                            Leesburg, VA 20176<br></div>
+                    </div>
+                    <div class="flex1 center">
+                        <div class="text_block">
+                            The Annual RF Communications Training Conference for 2020 will be held on November 2,
+                        2020, at the National Conference Center in Leesburg, VA. Training topics will be an
+                        introduction to RF communications. Sessions will focus on basic theory of antennas,
+                        signal loss, and signal gain. Each session will consist of three workshops.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+

@@ -1,0 +1,105 @@
+/*Name: Dustin Segawa*/
+/*Assignment: CS336 Assignment #7*/
+/*Created: 7/28/2020*/
+/*Description: CSS Page for assignment*/
+
+/*@charset "UTF-8";*/
+/* CSS Document */
+
+:root {
+    --page-edge-w: 30mm;    /*margin on L/R edge of page*/
+    --page-edge-h: 15mm;    /*margin on Top/Bottom edge of page*/
+    --tag-width: 76mm;      /*width of each tag*/
+    --tag-height: 50mm;     /*height of each tag*/
+    --tag-space-w: 0mm;     /*space between columns*/
+    --tag-space-h: 0mm;     /*space between rows*/
+    --tag-num-col: 2;       /*number of columns*/
+    --tag-num-row: 5;       /*number of rows*/
+    --tag-border: 1px;      /*border pixel width, needs to be calculated so it doesn't push containers*/
+}
+
+.page {     /*container for the printed page area as described in the project*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+        /*tag width x number of tags in column, plus 2 page margins, plus tag margin x number of tags in col -1 col*/
+    width: calc((var(--tag-width) * var(--tag-num-col)) + (var(--page-edge-w) * 2) + (var(--tag-space-w) * (var(--tag-num-col) - 1)));
+    height: calc((var(--tag-height) * var(--tag-num-row)) + (var(--page-edge-h) * 2) + (var(--tag-space-h) * (var(--tag-num-row) - 1)));
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13px;       /*these were to center the tags on the pages so they wouldn't overrun as the pages went on*/
+    margin-bottom: 14px;
+    padding: 0;
+    border: rgb(200 200 200) dashed var(--tag-border);
+}
+
+.nt10_col {  /*container for the single column of rows of tags*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc((var(--tag-width) + var(--tag-space-w)) * var(--tag-num-col));      /*width is tags and width spacers*/
+    height: calc((var(--tag-height) + var(--tag-space-h)) * var(--tag-num-row));    /*height is tags and height spacers*/
+
+    /*I tried using margin calculations but it was unreliable*/
+    /*margin-top: calc(var(--page-edge-h) - (var(--tag-space-h) / 2));      !*half of height spacer*!*/
+    /*margin-bottom: calc(var(--page-edge-h) - (var(--tag-space-h) / 2));*/
+    /*margin-left: calc(var(--page-edge-w) - (var(--tag-space-w) / 2));   !*half of width spacer*!*/
+    /*margin-right: calc(var(--page-edge-w) - (var(--tag-space-w) / 2));*/
+    /*border: orange solid var(--tag-border);*/
+}
+
+.nt10_row {  /*container for a row of tags*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    /*I tried using margin calculations but it was unreliable*/
+    /*width: calc((var(--tag-width) + var(--tag-space-w)) * var(--tag-num-col));  !*width is same as col container*!*/
+    /*margin-top: calc(var(--tag-space-h) / 2);           !*space is added with margin, half of space width to both sides*!*/
+    /*margin-bottom: calc(var(--tag-space-w) / 2);*/
+    /*border: red dotted var(--tag-border);*/
+}
+
+.nt10 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: var(--tag-width);
+    height: var(--tag-height);
+    margin-left: calc(var(--tag-space-w) / 2);      /*half of spacer width*/
+    margin-right: calc(var(--tag-space-w) / 2);     /*half of spacer height*/
+    text-align: center;
+    /*width: calc(var(--tag-width) - var(--tag-border) * 2);      !*width, - the added border pixels*!*/
+    /*height: calc(var(--tag-height) - var(--tag-border) * 2);    !*height, - the added border pixels*!*/
+    /*border: blue solid var(--tag-border);*/
+}
+
+.name10 {
+    font-size: 22pt;
+    font-weight: bold;
+    color: green;
+    margin-top: auto;
+    line-height: 1.5;
+}
+
+.pos {
+    font-size: 12pt;
+    font-weight: bold;
+    color: red;
+    line-height: 1.5;
+}
+
+.co_loc {
+    margin-bottom: auto;
+    line-height: 1.5;
+}
+
+.co, .city, .state {
+    font-size: 12pt;
+}

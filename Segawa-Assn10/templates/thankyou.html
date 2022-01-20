@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block keywords %}thank you, thanks{% endblock %}
+{% block description %}thank you for registering page{% endblock %}
+{% block title %}You are Registered!{% endblock %}
+
+{% block main %}
+        <br>
+        <div class="center text_title bold">Thank you for registering {{ form_arr[1]|e }} {{ form_arr[3]|e }}! </div><br>
+        <br>
+        <br>
+        <div class="text_heading border1">
+            Conference ID Number: {{ id_num|e }}<br>
+            Registration Date: {{ form_arr[0]|e }}
+        </div>
+        <div class="text_heading border1">Personal Information
+            <div class="text_block">Title: {{ form_arr[1]|e }}</div>    {# |e to escape HTML#}
+            <div class="text_block">First: {{ form_arr[2]|e }}</div>
+            <div class="text_block">Last: {{ form_arr[3]|e }}</div>
+            <div class="text_block">Street Address: {{ form_arr[4]|e }} {{ form_arr[5]|e }}</div>
+            <div class="text_block">City: {{ form_arr[6]|e }}</div>
+            <div class="text_block">State: {{ form_arr[7]|e }}</div>
+            <div class="text_block">Zip: {{ form_arr[8]|e }}</div>
+            <div class="text_block">Telephone: {{ form_arr[9]|e }}</div>
+            <div class="text_block">Email: {{ form_arr[10]|e }}</div>
+        </div>
+        <div class="text_heading border1">Company Information
+            <div class="text_block">Name of Company: {{ form_arr[13]|e }}</div>
+            <div class="text_block">Company Website: {{ form_arr[11]|e }}</div>
+            <div class="text_block">Position with Company: {{ form_arr[12]|e }}</div>
+        </div>
+        <div class="text_heading border1">Dining Information
+            <div class="text_block">Meal Selection: {{ form_arr[14]|e }}</div>
+        </div>
+        <div class="text_heading border1">Workshop Information
+            <div class="text_block">Session 1: {{ form_arr[22]|e }}</div>
+            <div class="text_block">Session 2: {{ form_arr[23]|e }}</div>
+            <div class="text_block">Session 3: {{ form_arr[24]|e }}</div>
+        </div>
+{% endblock %}
+

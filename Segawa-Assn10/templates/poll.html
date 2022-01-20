@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block keywords %}awards, vote, poll{% endblock %}
+{% block description %}voting page for award candidates for the conference{% endblock %}
+{% block title %}Vote for the Award Winner{% endblock %}
+
+{% block main %}
+        <div class="text_title center bold">{{ vote }}</div>
+
+        <div class="flex_column>">
+            <div class="flex_row center">
+                <div class="text_title bold">Poll for Awards</div>
+            </div><br>
+
+            <form id="poll_form" class="poll_form" action="awards" method="post">
+
+                <div class="flex_column border1">
+                    <div class="flex_row bold">
+                        <div class="flex_containerQ border1 pad">Vote</div>
+                        <div class="flex1 border1 pad">Entry</div>
+                        <div class="flex1 border1 pad">Title</div>
+                        <div class="flex2 border1 pad">Description</div>
+                    </div>
+                    <div class="flex_row">
+                        <div class="flex_containerQ border1 pad">
+                            <input type="radio" id="antenna1" name="award_poll" required value="antenna1">
+                            <div id="vote1">'#'</div>
+                        </div>
+                        <div class="flex1 border1 pad">
+                            <img src="/static/images/caddy.jpg" alt="lots of monopole" class="img100">
+                        </div>
+                        <div class="flex1 border1 pad text_heading">Antenna #1</div>
+                        <div class="flex2 border1 pad text_block">Just one more antenna</div>
+                    </div>
+                    <div class="flex_row">
+                        <div class="flex_containerQ border1 pad">
+                            <input type="radio" id="antenna2" name="award_poll" required value="antenna2">
+                            <div id="vote2">'#'</div>
+                        </div>
+                        <div class="flex1 border1 pad">
+                            <img src="/static/images/rover.jpg" alt="lots of yagi" class="img100">
+                        </div>
+                        <div class="flex1 border1 pad text_heading">Antenna #2</div>
+                        <div class="flex2 border1 pad text_block">Overhead clearance problems</div>
+                    </div>
+                    <div class="flex_row">
+                        <div class="flex_containerQ border1 pad">
+                            <input type="radio" id="antenna3" name="award_poll" required value="antenna3">
+                            <div id="vote3">'#'</div>
+                        </div>
+                        <div class="flex1 border1 pad">
+                            <img src="/static/images/taurus.jpg" alt="large HF on car" class="img100">
+                        </div>
+                        <div class="flex1 border1 pad text_heading">Antenna #3</div>
+                        <div class="flex2 border1 pad text_block">Completely immobile, will it tip over?</div>
+                    </div>
+                </div>
+
+                <div class="submit_button">
+                    <br>
+                    <input type="submit" name="submit_poll" id="submit_poll" value="VOTE!">
+                    <br><br>
+                </div>
+            </form>
+            <br>
+        </div>
+        <script src="/static/js/Chart.js"></script>                         <!--JS library for charts-->
+        <canvas id="myChart" width="400" height="100"></canvas>
+        <script src="/static/js/poll.logic.js"></script>
+{% endblock %}

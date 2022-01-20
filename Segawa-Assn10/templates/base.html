@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--    Name: Dustin Segawa
+        Assignment: CS336 Assignment #10
+        Created: 8/18/2020
+        Description: {{ description }}   -->
+
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="author"
+              content="Dustin Segawa" />
+        <meta name="robots"
+              content="noindex" />
+        <meta name="keywords"
+              content={% block keywords %}{% endblock %} />
+        <meta name="description"
+              content={% block description %}{% endblock %} />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Conference - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/static/css/webdefault.css">
+    {% endblock %}
+</head>
+<body>
+    <div class="flex_col_page">
+    <header>
+        {% include 'nav.html' %}
+        {% include 'login.html' %}
+    </header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+    </div>
+</body>
+</html>

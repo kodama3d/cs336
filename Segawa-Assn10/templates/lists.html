@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block keywords %}"lists, registered"{% endblock %}
+{% block description %}"lists of registrants for the conference"{% endblock %}
+{% block title %}"Registrant Lists"{% endblock %}
+
+{% block main %}
+    <div class="flex_column text_block">
+        <div class="center">
+            <div class="bold text_title">Registrant Lists</div>
+        </div>
+        <br>
+        <form name="list_form" id="list_form" class="list_form" method="POST">
+            <fieldset>
+                <legend>Categories</legend>
+                <div class="flex_row">
+                    <label class="label_title">Registrants:</label>
+                    <div class="form_column_flex">
+                        <div>
+                            <input type="radio" id="list_all" name="reg_lists" required value="list_all"
+                                   title="All">
+                            <label class="label_radio" for="list_all">All</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_a" name="reg_lists" required value="Workshop A"
+                                   title="in Workshop A">
+                            <label class="label_radio" for="list_a">in Workshop A</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_b" name="reg_lists" required value="Workshop B"
+                                   title="in Workshop B">
+                            <label class="label_radio" for="list_b">in Workshop B</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_c" name="reg_lists" required value="Workshop C"
+                                   title="in Workshop C">
+                            <label class="label_radio" for="list_c">in Workshop C</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_d" name="reg_lists" required value="Workshop D"
+                                   title="in Workshop D">
+                            <label class="label_radio" for="list_d">in Workshop D</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_e" name="reg_lists" required value="Workshop E"
+                                   title="in Workshop E">
+                            <label class="label_radio" for="list_e">in Workshop E</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_f" name="reg_lists" required value="Workshop F"
+                                   title="in Workshop F">
+                            <label class="label_radio" for="list_f">in Workshop F</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_g" name="reg_lists" required value="Workshop G"
+                                   title="in Workshop G">
+                            <label class="label_radio" for="list_g">in Workshop G</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_h" name="reg_lists" required value="Workshop H"
+                                   title="in Workshop H">
+                            <label class="label_radio" for="list_h">in Workshop H</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_i" name="reg_lists" required value="Workshop I"
+                                   title="in Workshop I">
+                            <label class="label_radio" for="list_i">in Workshop I</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_meal" name="reg_lists" required value="mealpack"
+                                   title="Registrants with Full Meal Packages">
+                            <label class="label_radio" for="list_meal">with Full Meal Package</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="list_dinner" name="reg_lists" required value="dinnerday2"
+                                   title="Second Dinner Only">
+                            <label class="label_radio" for="list_dinner">with only Second Dinner</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <div class="submit_button">
+                <input type="submit" name="submit_list" id="submit_list" value="Query">
+            </div>
+        </form>
+
+        {# table populated by SQL query#}
+        <div class="flex_column pad">
+            <div class="text_heading pad">{{ sql_title }}</div> {# variable for type of query#}
+            {% for row in reg_sql %}
+                <div class="text_block"> -- {{ row[0] }} {{ row[1] }} {{ row[2] }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

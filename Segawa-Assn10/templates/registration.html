@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+{% block keywords %}registration, register{% endblock %}
+{% block description %}attendee registration for the conference{% endblock %}
+{% block title %}Registration{% endblock %}
+
+{% block main %}
+        <form name="reg_form" id="reg_form" class="registration_form" action="registration" method="POST"
+              onsubmit="return validateForm()">
+            <h1>Registration</h1>
+            <fieldset>
+                <div class="field_name">
+                    <label class="label_title" for="confIDnum">Conference ID Number:</label>
+                    <input type="text" id="confIDnum" name="confIDnum" maxlength="6" pattern="[0-9]+"
+                           placeholder="Enter ID" title="Only numbers">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form_flex_name">
+                    <div class="field_title">
+                        <label class="label_title" for="titleList">Title:</label>
+                        <select id ="titleList" name="titleList" title="Optional, select one">
+                            <option value = "">-</option>
+                            <option value = "Dr."> Dr. </option>
+                            <option value = "Mr."> Mr. </option>
+                            <option value = "Ms."> Ms. </option>
+                            <option value = "Mx."> Mx. </option>
+                        </select>
+                    </div>
+                    <div class="field_name">
+                        <label class="label_title" for="fname">First:</label>
+                        <input type="text" id="fname" name="fname" maxlength="100" pattern="[a-zA-Z]+" required
+                               placeholder="Enter First Name" title="Only characters (no symbols or numbers)">
+                    </div>
+                    <div class="field_name">
+                        <label class="label_title" for="lname">Last:</label>
+                        <input type="text" id="lname" name="lname" maxlength="100" pattern="[a-zA-Z\-]+" required
+                               placeholder="Enter Last Name" title="Only characters and hyphens allowed (no other symbols
+                            or numbers)">
+                    </div>
+                </div>
+                <br>
+                <div class="flex_row">
+                    <div class="flex_column flex2">
+                        <label class="label_title" for="street1">Street Address:</label>
+                        <input type="text" id="street1" name="street1" maxlength="100" pattern="[a-zA-Z0-9\ \#]+"
+                               required placeholder="Enter Street Address"
+                               title="Only characters including spaces and numbers (no symbols other than #)">
+                        <input type="text" id="street2" name="street2" maxlength="100" pattern="[a-zA-Z0-9\ \#]+"
+                               class="street2" placeholder="Optional"
+                               title="Only characters including spaces and numbers (no symbols other than #)">
+                    </div>
+                    <div class="flex_row">
+                        <div class="field_city">
+                            <label class="label_title" for="city">City:</label>
+                            <input type="text" id="city" name="city" maxlength="100" pattern="[a-zA-Z\ ]+" required
+                                   placeholder="Enter City" title="Only characters including spaces (no symbols or numbers)">
+                        </div>
+                        <div class="field_state">
+                            <label class="label_title" for="stateList">State:</label>
+                            <select id="stateList" name="stateList" required title="Select State">
+                                <option value="">-</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="field_zip">
+                            <label class="label_title" for="zip">Zip:</label>
+                            <input type="text" id="zip" name="zip" size="5" maxlength="5" pattern="[0-9]{5}" required
+                                   placeholder="Enter Zip"
+                                   title="Numbers only. This will be a five character field, not a 5+4 zip code">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="flex_row">
+                    <div class="field_phone">
+                        <label class="label_title" for="telephone">Telephone:</label>
+                        <input type="text" id="telephone" name="telephone" maxlength="12"
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="000-000-0000"
+                               title="000-000-0000">
+                    </div>
+                    <div class="field_email">
+                        <label class="label_title" for="email">Email:</label>
+                        <input type="email" id="email" name="email" maxlength="100" required
+                               placeholder="Enter Email Address" title="Enter valid email address" value="{{ eml|e }}">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Company Information</legend>
+                <div class="flex_row">
+                    <div class="field_company">
+                        <label class="label_title" for="company_name">Name of Company:</label>
+                        <input type="text" id="company_name" name="company_name" maxlength="100"
+                               pattern="[a-zA-Z0-9\s]+" required placeholder="Enter Company"
+                               title="Only characters including spaces and numbers (no symbols)">
+                    </div>
+                    <div class="field_website">
+                        <label class="label_title" for="company_web">Company Website:</label>
+                        <input type="url" id="company_web" name="company_web" maxlength="100"
+                               placeholder="Enter Website" title="Enter website">
+                    </div>
+                    <div class="field_position">
+                        <label class="label_title" for="company_pos">Position with Company:</label>
+                        <input type="text" id="company_pos" name="company_pos" maxlength="100"
+                               pattern="[a-zA-Z0-9\s]+" required placeholder="Enter Position"
+                               title="Only characters including spaces and numbers (no symbols)">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Dining Information</legend>
+                <div class="flex_row">
+                    <label class="label_title">Select One:</label>
+                    <div class="form_column_flex">
+                        <div>
+                            <input type="radio" id="meal_package" name="meals" required value="mealpack"
+                               title="Meal Package">
+                            <label class="label_radio" for="meal_package">Meal Package: $250.00</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="dinner_only" name="meals" required value="dinnerday2"
+                               title="Second Dinner Only">
+                            <label class="label_radio" for="dinner_only">Second Dinner Only: $75.00</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Workshop Information</legend>
+                <div class="form_row_workshop">
+                    <fieldset>
+                        <legend>Day 1:</legend>
+                        <div class="flex_row">
+                            <label class="label_title">Session 1<br> Antennas:</label>
+                            <div class="form_column_flex">
+                                <div class="flex_row">
+                                    <input type="radio" id="feeds" name="session1" value="Workshop A">
+                                    <label class="label_radio" for="feeds">Feeds</label>
+                                    <div>(10:00-12:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="reflectors" name="session1" value="Workshop B">
+                                    <label class="label_radio" for="reflectors">Reflectors</label>
+                                    <div>(10:00-15:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="materials" name="session1" value="Workshop C">
+                                    <label class="label_radio" for="materials">Materials</label>
+                                    <div>(10:00-12:00)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="flex_row">
+                            <label class="label_title">Session 2<br>Signal Loss:</label>
+                            <div class="form_column_flex">
+                                <div class="flex_row">
+                                    <input type="radio" id="system" name="session2" value="Workshop D">
+                                    <label class="label_radio" for="system">System Loss</label>
+                                    <div>(13:00-15:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="transmission" name="session2" value="Workshop E">
+                                    <label class="label_radio" for="transmission">Transmission Loss</label>
+                                    <div>(13:00-15:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="interference" name="session2" value="Workshop F">
+                                    <label class="label_radio" for="interference">Interference *link</label>
+                                    <div>(13:00-15:00)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Day 2</legend>
+                        <div class="flex_row">
+                            <label class="label_title">Session 3<br>Signal Gain:</label>
+                            <div class="form_column_flex">
+                                <div class="flex_row">
+                                    <input type="radio" id="calibration" name="session3" value="Workshop G">
+                                    <label class="label_radio" for="calibration">Calibration</label><br>
+                                    <div>(09:00-11:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="processing" name="session3" value="Workshop H">
+                                    <label class="label_radio" for="processing">Processing *link</label>
+                                    <div>(09:00-11:00)</div>
+                                </div>
+                                <div class="flex_row">
+                                    <input type="radio" id="amplifiers" name="session3" value="Workshop I">
+                                    <label class="label_radio" for="amplifiers">Amplifiers</label>
+                                    <div>(09:00-11:00)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <div class="submit_button">
+                    <input type="submit" name="submit_form" id="submit_form" value="Submit">
+            </div>
+        </form>
+        <script src="/static/js/registration.logic.js"></script>
+{% endblock %}
